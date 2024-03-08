@@ -105,11 +105,11 @@ class TelegramPlugin(CorePluginMixin, NotificationPlugin):
 
         client = self.get_client(group.project)
 
-        body = "*[Sentry]* {project_name} {level}: *{title}*\n```{message}```\n{url}".format(
-            project_name=project.name.encode("utf-8"),
-            level=event.group.get_level_display().upper().encode("utf-8"),
-            title=event.title.encode("utf-8").splitlines()[0],
-            message=event.message.encode("utf-8"),
+        body = "*[Sentry]* {project_name}\n {level}: *{title}*\n```{message}```\n{url}".format(
+            project_name=project.name,
+            level=event.group.get_level_display().upper(),
+            title=event.title.splitlines()[0],
+            message=event.message,
             url=group.get_absolute_url()
         )
 
