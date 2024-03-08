@@ -18,17 +18,17 @@ Get notified of Sentry alerts via Telegram.
 
 
 class TelegramConfigurationForm(forms.Form):
+    api_key = forms.CharField(
+        label=_("Api Key"),
+        required=True,
+        widget=forms.PasswordInput(render_value=True, attrs={"class": "span6"}),
+    )
     group_id = forms.CharField(
         label=_("Group ID"), required=True,
         widget=forms.TextInput(attrs={"class": "span6", "placeholder": "e.g. -100174934319"})
     )
     topic_id = forms.CharField(
         label=_("Topic ID"), required=False, widget=forms.TextInput(attrs={"class": "span6", "placeholder": "e.g. 65"})
-    )
-    api_key = forms.CharField(
-        label=_("Api Key"),
-        required=True,
-        widget=forms.PasswordInput(render_value=True, attrs={"class": "span6"}),
     )
     silent = forms.BooleanField(
         label=_("silent"),
