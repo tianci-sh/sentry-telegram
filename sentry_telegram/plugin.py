@@ -12,9 +12,6 @@ from sentry_plugins.base import CorePluginMixin
 
 from .client import TelegramApiClient
 
-DEFAULT_REGION = "US"
-MAX_SMS_LENGTH = 160
-
 DESCRIPTION = """
 Get notified of Sentry alerts via Telegram.
 """
