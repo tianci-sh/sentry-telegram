@@ -103,19 +103,21 @@ class TelegramPlugin(CorePluginMixin, NotificationPlugin):
             return
         project = group.project
 
-        body = b"Sentry [%s] %s: %s" % (
-            project.name.encode("utf-8"),
-            event.group.get_level_display().upper().encode("utf-8"),
-            event.title.encode("utf-8").splitlines()[0],
-        )
-        body = body[:MAX_SMS_LENGTH]
-
         client = self.get_client(group.project)
+
+        body = "*[Sentry]* {project_name} {level}: *{title}*\n```{message}```\n{url}".format(
+            project_name=project.name.encode("utf-8"),
+            level=event.group.get_level_display().upper().encode("utf-8"),
+            title=event.title.encode("utf-8").splitlines()[0],
+            message=event.message.encode("utf-8"),
+            url=group.get_absolute_url()
+        )
 
         payload = {
             "message_thread_id": client.topic_id,
             "text": body,
             "chat_id": client.group_id,
+            "parse_mode": "markdown",
             "disable_notification": client.silent
         }
 
