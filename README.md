@@ -10,3 +10,6 @@ apt-get update
 apt-get install -y git
 pip install git+https://github.com/tianci-sh/sentry-telegram.git
 ```
+
+## Result
+![Sentry Telegram Integration](https://github.com/tianci-sh/sentry-telegram/blob/master/images/image.png "Sentry Telegram Integration")
