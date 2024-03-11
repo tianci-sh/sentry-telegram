@@ -8,7 +8,7 @@ vi sentry/enhance-image.sh #see https://develop.sentry.dev/self-hosted/#configur
 
 apt-get update
 apt-get install -y git
-pip install git+https://github.com/tianci-sh/sentry-telegram.git
+pip install git+https://github.com/tianci-sh/sentry-telegram.git@v24.2.0
 ```
 
 ## Result
