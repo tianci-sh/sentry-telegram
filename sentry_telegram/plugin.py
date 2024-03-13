@@ -19,7 +19,7 @@ Get notified of Sentry alerts via Telegram.
 
 class TelegramConfigurationForm(forms.Form):
     api_key = forms.CharField(
-        label=_("Api Key"),
+        label=_("Bot Token (like: bot6604621600:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX)"),
         required=True,
         widget=forms.PasswordInput(render_value=True, attrs={"class": "span6"}),
     )
@@ -51,15 +51,16 @@ class TelegramPlugin(CorePluginMixin, NotificationPlugin):
     resource_links = [
         (
             "Documentation",
-            "https://github.com/tianci-sh/sentry-telegram/blob/master/Telegram_Instructions.md",
+            "https://github.com/tianci-sh/sentry-telegram/blob/master/README.md",
         ),
         ("Report Issue", "https://github.com/tianci-sh/sentry-telegram/issues"),
         (
             "View Source",
             "https://github.com/tianci-sh/sentry-telegram",
         ),
-        ("Telegram", "https://www.telegram.com/"),
+        ("Telegram", "https://telegram.org/"),
         ("Telegram Document", "https://core.telegram.org/bots#3-how-do-i-create-a-bot"),
+        ("Get Telegram Bot Token", "https://core.telegram.org/bots/features#botfather"),
     ]
 
     slug = "Telegram"
